@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<script>
+    function doSub() {
+        let x = Number(document.getElementById("a").value);
+        //Access the value in the textbox
+        let y = Number(document.getElementById("b").value);
+        //Number converts string to text
+        document.getElementById("c").value = x - y ;
+        //Show the answer in the value of the text
+    }
+
+
+    function doAdd() {
+        let x = Number(document.getElementById("a").value);
+        //Access the value in the textbox
+        let y = Number(document.getElementById("b").value);
+        //Mumber converts string to text
+        document.getElementById("c").value = x + y;
+        //Show the answer in the value of the text
+    }
+
+    function dodiv() {
+        let x = Number(document.getElementById("a").value);
+        //Access the value in the textbox
+        let y = Number(document.getElementById("b").value);
+        //Mumber converts string to text
+        document.getElementById("c").value = x / y;
+        //Show the answer in the value of the text
+    }
+
+    function domul() {
+        let x = Number(document.getElementById("a").value);
+        //Access the value in the textbox
+        let y = Number(document.getElementById("b").value);
+        //Mumber converts string to text
+        document.getElementById("c").value = x * y;
+        //Show the answer in the value of the text
+    }
+</script>
+
+
+<body>
+    <br><input id="a" type="number">
+    <br><input id="b" type="number">
+    <br><input id="c" type="number">
+    <br><input type="button" value="Add" style="background-color:lightblue;" onclick="doAdd()">
+    <br><input type="button" value="Sub" style="background-color:lightblue;" onclick="doSub()">
+    <br><input type="button" value="div" style="background-color:lightblue;" onclick="dodiv()">
+    <br><input type="button" value="mul" style="background-color:lightblue;" onclick="domul()">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
