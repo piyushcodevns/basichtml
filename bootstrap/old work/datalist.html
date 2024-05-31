@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalist Example</title>
+</head>
+
+<body>
+    <h2>Choose a Fruit</h2>
+    <input type="text" id="fruitInput" list="fruits">
+    <datalist id="fruits">
+        <option value="Apple">
+        <option value="Banana">
+        <option value="Orange">
+        <option value="Strawberry">
+        <option value="Grapes">
+    </datalist>
+    <img src="" id="img" style="width: 100px; height: 100px;">
+    
+
+    <button onclick="showSelectedFruit()">Show Selected Fruit</button>
+
+    <p id="selectedFruit"></p>
+
+    <script>
+        function showSelectedFruit() {
+            const input = document.getElementById('fruitInput');
+            const selectedFruit = input.value;
+            document.getElementById("img").src=`pics/${selectedFruit}.jpg`;
+            document.getElementById('selectedFruit').textContent = `Selected fruit: ${selectedFruit}`;
+        }
+    </script>
+</body>
+
+</html>

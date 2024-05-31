@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Film Name</title>
+<script>
+var film= {
+Name: "Fighter",
+Hero: "Hritik Roshan",
+Heroine: "Deepika Padukone",
+Villane: "Sachin Srivastava"
+//discountedprice:function(){return this.price-10;};
+};
+function f()
+{
+document.getElementById("txtName").value=film.Name;
+document.getElementById("txtHero").value=film['Hero'];
+document.getElementById("txtHeroine").value=film.Heroine;
+document.getElementById("txtVillane").value=film.Villane;
+// alert(book.discountedprice());
+}
+function f1()
+{
+    console.log ("F1");
+    film.Name=document.getElementById("txtName").value ;
+    film['Hero']=document.getElementById("txtHero").value;
+    film.Heroine= document.getElementById("txtHeroine").value;
+    film.Villane=document.getElementById("txtVillane").value;
+
+}
+</script>
+</head>
+<body>
+Film <input type="text" id="txtName"/>
+<br/>
+Hero name<input type="text" id="txtHero"/>
+<br/>
+Heroine name<input type="text" id="txtHeroine"/>
+<br/>
+Villane<input type="text"id="txtVillane">
+<br/>
+<input type="button" onclick="f()" value="Find"/>                           
+<input type="button" onclick="f1()" value="Set"/>
+</body>
+</html>

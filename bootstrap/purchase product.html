@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f() {
+            let output=document.getElementById("output");
+            let computer=0;
+            // let device=0;
+            if(document.getElementById("dell").checked)
+            computer="Dell";
+
+            if(document.getElementById("hp").checked)
+            computer="hp";
+
+            if(document.getElementById("lenovo").checked)
+            computer="Lenovo";
+
+            if(document.getElementById("toshiba").checked)
+            computer="Toshiba";
+
+            if(document.getElementById("asus").checked)
+            computer="ASUS";   
+
+            if(document.getElementById("pendrive").checked)
+            computer+="Pendrive";   
+
+            if(document.getElementById("speaker").checked)
+            computer+="Speaker";   
+
+            if(document.getElementById("microphone").checked)
+            computer+="Microphone";  
+        output.innerHTML=computer;
+        // output.innerHTML=device;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="output"></div>
+    
+    <input id="dell" name="computer" type="radio">Dell
+    <input id="hp" name="computer" type="radio">hp
+    <input id="lenovo" name="computer" id="product" type="radio">Lenovo
+    <input id="toshiba" name="computer" type="radio">Toshiba
+    <input id="asus" name="computer" type="radio">ASUS<br>
+    <input id="pendrive" name="computer" type="checkbox">Pendrive
+    <input id="speaker" name="computer" type="checkbox">Speaker
+    <input id="microphone" name="computer" id="myCheck" type="checkbox">Microphone<br>
+    <input onclick="f()" type="button" value="Buy">
+</body>
+</html>
