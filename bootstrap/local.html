@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  Name:<input type="text" id="name" name="name"><br><BR>
+  rolll_no:<input type="text" id="roll_no" name="roll_no"><br><br>
+  <button type="button" onclick="saveData()">store data</button>
+  <button type="button" onclick="retriveData()">retrive data</button>
+  <button onclick="clearText()">Clear Text</button>
+  <button type="button" onclick="clearStorage()">clear Storage</button>
+  
+
+
+  <script>
+    function saveData() {
+      const formData = {
+        name: document.getElementById("name").value,
+        roll_no: document.getElementById("roll_no").value
+      };
+
+      localStorage.setItem("formData", JSON.stringify(formData));
+    }
+
+    function retriveData() {
+      const savedData = localStorage.getItem("formData");
+      if (savedData) {
+        const formData = JSON.parse(savedData);
+        document.getElementById("name").value = formData.name;
+        document.getElementById("roll_no").value = formData.roll_no;
+      }
+    }
+    function clearText() {
+      document.getElementById("name").value = "";
+      document.getElementById("roll_no").value = "";
+    }
+
+    function clearStorage() {
+  localStorage.clear();
+}
+
+
+  </script>
+</body>
+
+</html>

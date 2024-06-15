@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     Film: <label id="info1"></label><br><br>
+     Hero Name: <lable id="info2"></lable><br><br>
+     Heroine Name: <lable id="info3"></lable><br><br>
+     Villane: <label id="info4"></label><br><br>  
+
+     
+
+     <input type="button" onclick="front()" value="-->">
+     <input type="button" onclick="back()" value="<--">
+
+     <script>
+
+        let data =`{
+        
+         "films": [
+        {
+            "film": "ANIMAL",
+            "heroname": "RANBIR SINGH",
+            "heroinename": "RASHMIKA MANDANNA",
+            "villane": "DOBBY DEOL"
+        },
+        {
+            "film": "PATHAAN",
+            "heroname": "SHAH RUKH HHAN",
+            "heroinename": "DEEPIKA PADUKONE",
+            "villane": "JIM CAL"
+        },
+        {
+            "film": "ATTACK",
+            "heroname": "JOHN ABRAHAM",
+            "heroinename": "DEEPIKA PADUKONE",
+            "villane": "SALMAN KHAN"
+        }
+    ]
+           
+        }`;
+        let jsondata = JSON.parse(data);
+        console.log(data);
+        console.log(jsondata);
+        const films=jsondata["films"];
+        console.log(films);
+        const length=films.length;
+        let n=0;
+        console.log(length);
+function front(){
+    if (n>=length)
+                return;
+            document.getElementById("info1").innerHTML=films[n].film;
+            document.getElementById("info2").innerHTML=films[n].heroname;
+            document.getElementById("info3").innerHTML=films[n].heroinename;
+            document.getElementById("info4").innerHTML=films[n].villane;
+            n++;
+}
+
+function back(){
+    if (n<=0 )
+                return;
+            document.getElementById("info1").innerHTML=films[n].film;
+            document.getElementById("info2").innerHTML=films[n].heroname;
+            document.getElementById("info3").innerHTML=films[n].heroinename;
+            document.getElementById("info4").innerHTML=films[n].villane;
+            n--;
+}
+front();
+
+        </script>
+</body>
+</html>
