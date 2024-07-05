@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar Example</title>
+    <style>
+        #progress-container {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        #progress-button {
+            display: block;
+            margin: 0px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="progress-container">
+        <div id="progress-bar">0%</</div>
+    </div>
+    <button id="progress-button">Update Progress</button>
+    <script>
+        const jsonData = {
+            "progress": 0
+        };
+
+        function simulateProgress() {
+            const intervalId = setInterval(() => {
+                if (jsonData.progress >= 100) {
+                    clearInterval(intervalId);
+                    return;
+                }
+                jsonData.progress += 10;
+                updateProgressBar(jsonData.progress);
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('progress-button');
+            button.addEventListener('click', simulateProgress);
+        });
+    </script>
+
+</body>
+
+</html>

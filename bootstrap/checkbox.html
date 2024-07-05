@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f() {
+            let output=document.getElementById("output");
+            let computer=0;
+
+            if(document.getElementById("dell").checked)
+            computer+="Dell";
+
+            if(document.getElementById("hp").checked)
+            computer+="hp";
+
+            if(document.getElementById("lenovo").checked)
+            computer+="Lenovo";
+
+            if(document.getElementById("toshiba").checked)
+            computer+="Toshiba";
+
+            if(document.getElementById("asus").checked)
+            computer+="ASUS";   
+
+            if(document.getElementById("pendrive").checked)
+            computer+="Pendrive";   
+
+            if(document.getElementById("speaker").checked)
+            computer+="Speaker";   
+
+            if(document.getElementById("microphone").checked)
+            computer+=",Microphone";  
+        output.innerHTML=computer;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="output"></div>
+    
+    <input id="dell" type="radio">Dell
+    <input id="hp" type="radio">hp
+    <input id="lenovo" id="product" type="radio">Lenovo
+    <input id="toshiba" type="radio">Toshiba
+    <input id="asus" type="radio">ASUS
+    <input id="pendrive" type="radio">Pendrive
+    <input id="speaker" type="radio">Speaker
+    <input id="microphone" id="myCheck" type="radio">Microphone<br>
+    <input onclick="f()" type="button" value="Buy">
+</body>
+</html>

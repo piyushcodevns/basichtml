@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .ddd {
+            z-index: 100;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            width: 200px;
+            height: 400px;
+            background-color: lightblue;
+        }
+
+        .button {
+            padding: 10px 20px;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: greenyellow;
+        }
+
+        #cart-count {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #cart-items {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+    </style>
+    <script>
+        let cartCount = 0;
+        let cartItems = [];
+        let items = [];
+
+        function addItems() {
+            items["iphone"] = 0;
+            items["AirPods"] = 0;
+            items["MacBook"] = 0;
+            items["iPad"] = 0;
+            items["Apple Watch"] = 0;
+            items["AirTag"] = 0;
+        }
+        addItems();
+
+        function addToCart(productName) {
+            cartCount++;
+            document.getElementById('cart-count').innerHTML = cartCount;
+
+            items[productName] += 1;
+        }
+
+        function showCartItems() {
+            let cartItemsList = '';
+            for (const item in items) {
+                if (items[item] > 0) {
+                    cartItemsList += `${item}: ${items[item]} item(s)<br>`;
+                }
+            }
+
+            document.getElementById('cart-items').innerHTML = cartItemsList.trim() || '<strong>Cart is empty</strong>';
+            document.getElementById('cart-items').style.display="block"; 
+            let status = closed;
+            if(status == closed)
+            document.getElementById('wcart-items')
+        }
+    </script>
+</head>
+
+<body style="background-color: white;">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <img src="pics/loga.jpg" alt="Logo"  width="50" height="24" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#">Apple</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <center style="margin-top: 1%;"><span id="cart-count" onclick="showCartItems()">0</span></center>
+
+    <div id="cart-items" class="container-fluid">
+        
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 ">
+               <center style="margin-top: 10px;"> <img src="pics/k.jpg" width="300px" height="300px"><br></center>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('iphone')">
+                </center>
+            </div>
+            <div class="col-md-4 ">
+                <center style="margin-top: 10px;"><img src="pics/airpods.jpg" width="300px" height="300px"><br>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('AirPods')">
+                </center>
+            </div>
+            <div class="col-md-4 "> 
+                <center style="margin-top: 10px;"><img src="pics/mac.jpg" width="350px" height="300px"><br></center>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('MacBook')">
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 ">
+                <center style="margin-top: 10px;"> <img src="pics/ipad.jpg" width="300px" height="300px"><br></center>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('iPad')">
+                </center>
+            </div>
+            <div class="col-md-4 ">
+                <center style="margin-top: 10px;"><img src="pics/hu.jpg" width="300px" height="300px"><br></center>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('Apple Watch')">
+                </center>
+            </div>
+            <div class="col-md-4 ">
+                <center style="margin-top: 10px;"><img src="pics/airtag.jpg" width="300px" height="300px"><br></center>
+                <center>
+                    <input type="button" value="Add to Cart" onclick="addToCart('AirTag')">
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Progress Bar</title>
+    <style>
+.progress
+{
+    position: absolute;
+    left: 10px;
+    size: 30px;
+    top: 50px;
+    background-color: blue;
+    width: 0%;
+    color: white;
+    font-size: 20px;
+    
+}
+
+
+    </style>
+    <script>
+        let percent=2;
+        let loop=0;
+        function f()
+        {
+          loop=  setInterval("progress()",100);
+        }
+        function progress(){
+            document.getElementById("dd").style.width=percent + "%";
+            document.getElementById("dd").innerHTML=percent + "%";
+            percent+=1; 
+            if(percent>100)
+            clearInterval(loop);
+        }
+        </script>
+</head>
+<body>
+    <div id="dd" class="progress"></div>
+    <button onclick="f()">Update Progress</button>
+</body>
+</html>

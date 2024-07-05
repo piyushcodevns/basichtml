@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .buttonclass {
+            background-color: lightgreen;
+            width: 100px;
+            height: 100px;
+            box-shadow: 10px 10px 5px lightblue;
+        }
+
+        .buttonclass.winning {
+            color: red;
+        }
+
+        button {
+            font-size: 90px;
+        }
+        .img2{
+            border-radius: 50%;
+            border: 2px solid black
+        }
+       
+    </style>
+    <script>
+        let lin1 = ["t11", "t12", "t13"];
+        let lin2 = ["t21", "t22", "t23"];
+        let lin3 = ["t31", "t32", "t33"];
+        let lin4 = ["t11", "t21", "t31"];
+        let lin5 = ["t12", "t22", "t32"];
+        let lin6 = ["t13", "t23", "t33"];
+        let lin7 = ["t11", "t22", "t33"];
+        let lin8 = ["t13", "t22", "t31"];
+        let count = 0;
+        let gameActive = true;
+
+        function f(y, x) {
+            if (!gameActive) return;
+            const button = document.getElementById("t" + y + x);    
+            if (button.innerHTML === "") {
+                if (count == 0) {
+                    button.innerHTML = "O";
+                    document.getElementById("turn").innerText = "Player 2 turn (X)";
+                } else {
+                    button.innerHTML = "X";
+                    document.getElementById("turn").innerText = "Player 1 turn (O)";
+                }
+
+                count = 1 - count;
+                let result = checkWinner();
+
+                if (result == "Player1") {
+                    document.getElementById("turn").innerText = "Congratulations! Player 1 wins";
+                    markWinningButtons("O");
+                    setDisable();
+                    return;
+                }
+                if (result == "Player2") {
+                    document.getElementById("turn").innerText = "Congratulations! Player 2 wins";
+                    markWinningButtons("X");
+                    setDisable();
+                    return;
+                }
+
+                if (result == "Draw") {
+                    document.getElementById("turn").innerText = "It's a draw!";
+                    setDisable();
+                    return;
+                }
+            }
+        }
+
+        function resetGame() {
+            for (let y = 1; y <= 3; y++) {
+                for (let x = 1; x <= 3; x++) {
+                    const button = document.getElementById("t" + y + x);
+                    button.innerHTML = "";
+                    button.disabled = false;
+                    button.classList.remove("winning"); // Remove winning class
+                }
+            }
+            count = 0;
+            gameActive = true;
+            document.getElementById("turn").innerText = "";
+        }
+
+        function checkWinner() {
+            let p1count = 0;
+            let p2count = 0;
+            let drawcount = 0;
+            if (document.getElementById(lin1[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin1[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin1[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin1[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin1[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin1[2]).innerHTML == "X")
+                p2count++;
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //*******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin2[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin2[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin2[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin2[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin2[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin2[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin3[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin3[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin3[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin3[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin3[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin3[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin4[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin4[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin4[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin4[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin4[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin4[2]).innerHTML == "X")
+                p2count++;
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin5[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin5[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin5[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin5[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin5[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin5[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin6[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin6[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin6[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin6[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin6[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin6[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin7[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin7[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin7[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin7[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin7[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin7[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+            p1count = 0;
+            p2count = 0;
+
+            if (document.getElementById(lin8[0]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin8[0]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin8[1]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin8[1]).innerHTML == "X")
+                p2count++;
+            if (document.getElementById(lin8[2]).innerHTML == "O")
+                p1count++;
+            if (document.getElementById(lin8[2]).innerHTML == "X")
+                p2count++;
+
+            if (p1count == 3)
+                return "Player1";
+            if (p2count == 3)
+                return "Player2";
+            if (p1count > 0 && p2count > 0)
+                drawcount++;
+
+            //******************************************************************
+
+            if (drawcount == 8)
+                return "Draw";
+            return "No Result";
+        }
+
+        function setDisable() {
+            gameActive = false;
+            for (let y = 1; y <= 3; y++) {
+                for (let x = 1; x <= 3; x++) {
+                    document.getElementById("t" + y + x).disabled = true;
+                }
+            }
+        }
+
+        function markWinningButtons(player) {
+            let lines = [lin1, lin2, lin3, lin4, lin5, lin6, lin7, lin8];
+            lines.forEach(line => {
+                let pcount = 0;
+                line.forEach(cell => {
+                    if (document.getElementById(cell).innerHTML === player) {
+                        pcount++;
+                    }
+                });
+                if (pcount === 3) {
+                    line.forEach(cell => {
+                        document.getElementById(cell).classList.add("winning");
+                    });
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1><i>Tic-Tac-Toe</i></h1>
+        <table>
+            <tr>
+                <th width="100px" height="100px">
+                    <button id="t11" onclick="f(1,1)" class="buttonclass"></button>
+                </th>
+                <th width="100px" height="100px">
+                    <button id="t12" onclick="f(1,2)" class="buttonclass"></button>
+                </th>
+                <th width="100px" height="100px">
+                    <button id="t13" onclick="f(1,3)" class="buttonclass"></button>
+                </th>
+            </tr>
+            <tr>
+                <td width="100px" height="100px">
+                    <button id="t21" onclick="f(2,1)" class="buttonclass"></button>
+                </td>
+                <td width="100px" height="100px">
+                    <button id="t22" onclick="f(2,2)" class="buttonclass"></button>
+                </td>
+                <td width="100px" height="100px">
+                    <button id="t23" onclick="f(2,3)" class="buttonclass"></button>
+                </td>
+            </tr>
+            <tr>
+                <td width="100px" height="100px">
+                    <button id="t31" onclick="f(3,1)" class="buttonclass"></button>
+                </td>
+                <td width="100px" height="100px">
+                    <button id="t32" onclick="f(3,2)" class="buttonclass"></button>
+                </td>
+                <td width="100px" height="100px">
+                    <button id="t33" onclick="f(3,3)" class="buttonclass"></button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <img src="pics/RESET.JPG" id="resetButton" onclick="resetGame()" width="100px" height="100px">
+        <h2 id="turn">Player 1 turn (O)</h2>
+        </center>
+        <img src="pics/piyush working.jpg" width="90px" height="90px" class="img2" style="margin-left: 90%; ">
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+ 

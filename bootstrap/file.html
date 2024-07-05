@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulating Lists with JavaScript</title>
+    <script>
+        function addItemToList() {
+            var ul = document.getElementById("myUL");
+            var li = document.createElement("li");
+            var text = document.createTextNode("New Item");            
+            li.appendChild(text);
+            ul.appendChild(li);
+        }
+        function addNumberedItem() {
+            var ol = document.getElementById("myOL");
+            var li = document.createElement("li");
+            var text = document.createTextNode("Step 4");
+            li.appendChild(text);
+            ol.appendChild(li);
+        }
+
+        function removeFirstItem() {
+    // Select the <ul> element
+    var ul = document.getElementById("myUL");
+
+    // Remove the first <li> element
+    if (ul.children.length > 0) {
+        ul.removeChild(ul.children[0]);
+    }
+}
+
+function removeLastItem() {
+    // Select the <ol> element
+    var ol = document.getElementById("myOL");
+
+    // Remove the last <li> element
+    var lastItemIndex = ol.children.length - 1;
+    if (ol.children.length > 0) {
+        ol.removeChild(ol.children[lastItemIndex]);
+    }
+}
+    </script>
+</head>
+<body>
+    <h2>Manipulating Lists with JavaScript</h2>
+    <button onclick="addItemToList()">Add Item to Unordered List</button>
+
+<button onclick="removeFirstItem()">removeFirstItem</button>
+<button onclick="removeLastItem()">removeLastItem</button>
+    <ul id="myUL">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button onclick="addNumberedItem()">Add Item to Ordered List</button>
+    <ol id="myOL">
+        <li>Step 1</li>
+        <li>Step 2</li>
+        <li>Step 3</li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script>
+    function f() {
+        let search = document.getElementById("q").value;
+        var t = document.getElementsByClassName("p");
+        var n = t.length;
+        for (var i = 0; i <= n - 1; i++) {
+            let x = t[i].innerHTML;
+            if (x.includes(search)) {
+                console.log("Found", x);
+                t[i].style.display = "Block";
+            }
+            else {
+                console.log("Not Found", x); t[i].style.display = "None";
+
+            }
+        }
+    }
+</script>
+
+<body>
+    <input type="text" onkeyup="f()" id="q"><br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="p">
+                    <img src="pics/vvvvv.jpg" alt="Varanasi" style="width: 300px; height: 200px;">
+                    <h2>Varanasi</h2>
+                    <p>The land of Varanasi (Kashi) has been the ultimate pilgrimage spot for Hindus for ages. Hindus
+                        believe that one
+                        who is graced to die on the land of Varanasi would attain salvation and freedom from the cycle
+                        of birth and
+                        re-birth.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p">
+                    <img src="pics/agra.jpg" alt="agra " style="width: 300px; height: 200px;">
+                    <h2>Agra</h2>
+                    <p>Agra is best known for the Taj Mahal (17th century), designated a UNESCO World Heritage site in
+                        1983. A complex
+                        mausoleum, the Taj Mahal is often considered to be the world's best example of Mughal
+                        architecture.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p">
+                    <img src="pics/sarnath.jpg" alt="sarnath" style="width: 300px; height: 200px;">
+                    <h2>Sarnath</h2>
+                    <p>Sarnath word is derived from Sarangnath or the Deer God. Deer Park (in Sarnath) is the place
+                        where Lord Buddha has given his first sermon. As per Huien Tsang, the famous Chinese Monk,
+                        development of Deer Park was done by Jataka King, Benaras.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

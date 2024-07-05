@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<script>
+    function f() {
+        let searchvalue = document.getElementById("hello").value;
+        if (searchvalue == 1) {
+            document.getElementById("p").style.display = "None";
+            document.getElementById("q").style.display = "Inline";
+        }
+        if (searchvalue == 2) {
+            document.getElementById("q").style.display = "None";
+            document.getElementById("p").style.display = "Inline";
+        }
+    }
+    function f1() {
+        let searchvalue = document.getElementById("hello").value;
+        if (searchvalue == 1) {
+            document.getElementById("p").style.display = "inline";
+            document.getElementById("q").style.display = "inline";
+        }
+    }
+    function f2() {
+        let searchvalue = document.getElementById("hello").value;
+        if (searchvalue == 1)
+            document.getElementById("p").style.display = "none";
+        document.getElementById("q").style.display = "none";
+    }
+
+</script>
+
+<body>
+    <input type="text" id="hello">
+    1.<input type="text" id="p">
+    2.<input type="text" id="q"><br>
+    <input type="button" value="Switch" onclick="f()">
+    <input type="button" value="Clear all" onclick="f2()">
+    <input type="button" onclick="f1()" value="Bring all">
+</body>
+
+</html>

@@ -11,6 +11,21 @@
 </head>
 
 
+<script>
+  function doShareVaranasiSoftwareJunction() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Varanasi Software Junction: Illustrating the Web Share API',
+        text: 'Learn how to develop a Web Share Button',
+        url: 'https://piyushcodevns.github.io/basichtml/bootstrap/weather.html?city=varanasi'
+      });
+    }
+  }
+
+</SCRIPT>
+
+
+
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
@@ -19,7 +34,7 @@
       </a>
     </div>
   </nav>
-  <img src="pics/0.jpg" style="width: 1349px; height: 450px;">
+  <img src="pics/pp.jpg" style="width: 1349px; height: 450px;">
   <h3 style="margin-top: 5%; margin-left: 10%;"><b><i>WELCOME TO MY PORTFOLIO. IT'S GREAT TO SEE YOU!</i></b></h3>
   <br>
   <br>
@@ -40,10 +55,7 @@
     <br>
     <br>
     <br>
-
-
-
-
+    <img src="pics/whatsapp.jpg" onclick="doShareVaranasiSoftwareJunction()" width="50px" height="50px">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
