@@ -365,7 +365,19 @@
         <img src="pics/RESET.JPG" id="resetButton" onclick="resetGame()" width="100px" height="100px">
         <h2 id="turn">Player 1 turn (O)</h2>  
         <img src="pics/piyush working.jpg" width="100px" height="100px" style="margin-left: 90%;" class="image">
+        <img src="pics/share.jpg" onclick="doShareVaranasiSoftwareJunction()" width="20px" height="20px">
     </center>
+    <script>
+        function doShareVaranasiSoftwareJunction() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Varanasi Software Junction: Illustrating the Web Share API',
+          text: 'Learn how to develop a Web Share Button',
+          url: 'https://piyushcodevns.github.io/basichtml/bootstrap/game.html'
+        });
+      }
+    }
+        </script>
 </body>
 
 </html>
